@@ -25,34 +25,34 @@
 
 
 # 1:
-# numero = int(input('Digite um número: '))
+numero = int(input('Digite um número: '))
 
-# if numero % 2 == 0:
-#     print('O número {} é par'.format(numero))
-# elif numero % 2 != 0:
-#     print('O número {} é ímpar' .format(numero))
-# else:
-#     print('Opção inválida')
+if numero % 2 == 0:
+    print('O número {} é par'.format(numero))
+elif numero % 2 != 0:
+    print('O número {} é ímpar' .format(numero))
+else:
+    print('Opção inválida')
 
 # 2:
-# idade = int(input('Digite sua idade: '))
+idade = int(input('Digite sua idade: '))
 
-# if 0 <= idade <= 12:
-#     print('Você é uma criança')
-# elif 13 <= idade <= 18:
-#     print('Você é um adolescente')
-# elif idade > 18:
-#     print('Você é um adulto')
-# else: 
-#     print('Opção inválida')
+if 0 <= idade <= 12:
+    print('Você é uma criança')
+elif 13 <= idade <= 18:
+    print('Você é um adolescente')
+elif idade > 18:
+    print('Você é um adulto')
+else: 
+   print('Opção inválida')
 
 # 3:
-# nome = input('Digite seu nome: ')
-# senha = input('Digite uma senha: ')
+nome = input('Digite seu nome: ')
+senha = input('Digite uma senha: ')
 
-# if (nome == 'Maria Clara' or nome == 'Maria') and (senha == 'monal'): #para cada condição é necessário comparar com a variável diretamente
-# else: 
-#     print('Acesso negado')
+if (nome == 'Maria Clara' or nome == 'Maria') and (senha == 'monal'): #para cada condição é necessário comparar com a variável diretamente
+else: 
+     print('Acesso negado')
 
 # 4:
 x = float(input('Digite a coordenada x: '))
