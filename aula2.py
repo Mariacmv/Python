@@ -71,3 +71,41 @@ if __name__ == '__main__': #consigo dividir o arquivo em partes para facilitar
 #         código a ser executado
 #     case _:
 #         código a ser executado caso os outros padrões não forem atendidos
+
+#TUPLAS X LISTAS
+# Listas são definidas através de colchetes 
+    # Exemplo: lista = [1,2,3]
+# Tuplas são definidas através de parênteses
+    # Exemplo: tupla = (1,2,3)
+#Listas são mutáveis podendo utilizar funções como: append(), remove(), pop() e insert()
+#Já tuplas são imutáveis
+#Sobre o uso de cada uma: listas são ideais para atividades que serão modificadas ao longo do tempo
+    # Exemplo:
+    # Criando uma lista de compras
+        # lista_de_compras = ["Maçã", "Banana", "Leite", "Pão", "Queijo"]
+
+        # # Adicionando um item à lista
+        # lista_de_compras.append("Ovos")
+
+        # # Removendo um item da lista
+        # lista_de_compras.remove("Banana")
+
+        # # Exibindo a lista
+        # print("Lista de Compras:")
+        # for item in lista_de_compras:
+        #     print("- " + item)
+#Tuplas são ideais para constantes, para informações que permanecem as mesmas ao longo do tempo
+    # Exemplo:
+    # Definindo uma tupla de coordenadas geográficas
+        # coordenadas_gps = (40.7128, -74.0060)
+
+        # # Exibindo as coordenadas
+        # print("Coordenadas GPS:")
+        # print("Latitude:", coordenadas_gps[0])
+        # print("Longitude:", coordenadas_gps[1])
+        
+        
+#VER MAIS EM:
+#https://www.alura.com.br/artigos/conhecendo-as-tuplas-no-python
+#E:
+#https://docs.python.org/pt-br/3/tutorial/datastructures.html#tuples-and-sequences
