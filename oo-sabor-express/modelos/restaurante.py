@@ -2,21 +2,30 @@ class Restaurante: #uma classe define um estrutura modelo, um molde
     restaurantes = [] #éum atributo da classe Restaurante
     
     def __init__(self, nome, categoria): #função que serve como construtor. parâmetro self faz referência ao objeto que está sendo instanciado
-        self.nome = nome
-        self.categoria = categoria
-        self.status = False #ao passar os atributos como self eles DEVEM ser passados como parâmetro
+        self._nome = nome.title() #só a primeira letra maiúscula
+        self._categoria = categoria.upper() #toda as letras ficam maiúsculas
+        self._status = False #ao passar os atributos como self eles DEVEM ser passados como parâmetro
         Restaurante.restaurantes.append(self) #toda vez que criar um objeto eu o adiciono à lista
     
     def __str__(self): #método especial que transforma em string (?)
-        return f'{self.nome} | {self.categoria}' #self.o que quero exibir, o return que faz a devolução
+        return f'{self._nome} | {self._categoria}' #self.o que quero exibir, o return que faz a devolução
 
     def listar_restaurantes(): #consigo determinar que é um método próprio porque não tem __a__
+        print(f'{'Nome do restaurante'.ljust(46)} | {'Categoria'.ljust(36)} | {'Status'}') #coloca entre chaves para manter o espaçamento definido abaixo
         for restaurante in Restaurante.restaurantes:
-            print(f'Nome do restaurante: {restaurante.nome} | Categoria: {restaurante.categoria}') #pegnado da lista, por issonão utiliza o self
+            print(f'Nome do restaurante: {restaurante._nome.ljust(25)} | Categoria: {restaurante._categoria.ljust(25)} | Status: {restaurante.status}') #pegando da lista, por isso não utiliza o self. Para imprimir não utiliza o _status porque se refere ao atributo não à propriedade status
+
+    @property
+    def status(self): #pra definir se 
+        return '✓' if self._status else '✗'
+        
+    def alternar_estado(self): #método para os objetos
+        self._status = not self._status
 
 #Instanciando uma classe: criando um objeto
-restaurante_praca = Restaurante('Praça', 'Gourmet') #variável do tipo Restaurante
-restaurante_pizza = Restaurante('Pizza Express', 'Italiana')
+restaurante_praca = Restaurante('praça', 'Gourmet') #variável do tipo Restaurante
+restaurante_praca.alternar_estado()
+restaurante_pizza = Restaurante('pizza express', 'Italiana')
 
 # restaurantes = [restaurante_praca, restaurante_pizza]
 # # print(restaurantes)
@@ -28,6 +37,11 @@ restaurante_pizza = Restaurante('Pizza Express', 'Italiana')
 # print(dir(restaurante_praca))
 
 Restaurante.listar_restaurantes()
+
+
+
+
+
 
 
 
@@ -58,9 +72,9 @@ Restaurante.listar_restaurantes()
 # faixa3.artista('Neffex')
 # faixa3.duracao(295)
 
-class Musica(self, nome, artista, duracao):
-    self.nome = nome
-    self.artista = artista
-    self.duracao = duracao
+# class Musica(self, nome, artista, duracao):
+#     self.nome = nome
+#     self.artista = artista
+#     self.duracao = duracao
     
-faixa1 = Musica('Soap', 'Melanie Martinez', 310)
+# faixa1 = Musica('Soap', 'Melanie Martinez', 310)
