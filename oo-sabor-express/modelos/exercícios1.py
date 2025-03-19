@@ -65,3 +65,4 @@ restaurante_pizza.status = True #(V)
 print(restaurante_praca.nome, restaurante_praca.categoria) #(V)
 #Porém é possível deixar mais amigável:
 print(f'Nome: {restaurante_praca.nome}, Categoria: {restaurante_praca.categoria}')
+
