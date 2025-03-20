@@ -1,5 +1,5 @@
 class Restaurante: #uma classe define um estrutura modelo, um molde
-    restaurantes = [] #éum atributo da classe Restaurante
+    restaurantes = [] #é um atributo da classe Restaurante
     
     def __init__(self, nome, categoria): #função que serve como construtor. parâmetro self faz referência ao objeto que está sendo instanciado
         self._nome = nome.title() #só a primeira letra maiúscula
@@ -11,7 +11,7 @@ class Restaurante: #uma classe define um estrutura modelo, um molde
         return f'{self._nome} | {self._categoria}' #self.o que quero exibir, o return que faz a devolução
 
     def listar_restaurantes(): #consigo determinar que é um método próprio porque não tem __a__
-        print(f'{'Nome do restaurante'.ljust(46)} | {'Categoria'.ljust(36)} | {'Status'}') #coloca entre chaves para manter o espaçamento definido abaixo
+        print(f"{'Nome do restaurante'.ljust(46)} | {'Categoria'.ljust(36)} | {'Status'}") #coloca entre chaves para manter o espaçamento definido abaixo
         for restaurante in Restaurante.restaurantes:
             print(f'Nome do restaurante: {restaurante._nome.ljust(25)} | Categoria: {restaurante._categoria.ljust(25)} | Status: {restaurante.status}') #pegando da lista, por isso não utiliza o self. Para imprimir não utiliza o _status porque se refere ao atributo não à propriedade status
 
