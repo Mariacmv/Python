@@ -23,9 +23,9 @@ class Restaurante: #uma classe define um estrutura modelo, um molde
         self._status = not self._status
 
 #Instanciando uma classe: criando um objeto
-restaurante_praca = Restaurante('praça', 'Gourmet') #variável do tipo Restaurante
-restaurante_praca.alternar_estado()
-restaurante_pizza = Restaurante('pizza express', 'Italiana')
+# restaurante_praca = Restaurante('praça', 'Gourmet') #variável do tipo Restaurante
+# restaurante_praca.alternar_estado()
+# restaurante_pizza = Restaurante('pizza express', 'Italiana')
 
 # restaurantes = [restaurante_praca, restaurante_pizza]
 # # print(restaurantes)
@@ -36,7 +36,7 @@ restaurante_pizza = Restaurante('pizza express', 'Italiana')
 # #Para imprimir um objeto é necessário utilizar a função dir
 # print(dir(restaurante_praca))
 
-Restaurante.listar_restaurantes()
+# Restaurante.listar_restaurantes()
 
 
 
