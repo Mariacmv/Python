@@ -1,9 +1,14 @@
 from modelos.avaliacao import Avaliacao
 
 class Restaurante: #uma classe define um estrutura modelo, um molde
+    '''Representa um restaurante e suas características'''
     restaurantes = [] #é um atributo da classe Restaurante
     
     def __init__(self, nome, categoria): #função que serve como construtor. parâmetro self faz referência ao objeto que está sendo instanciado
+        '''Construtor da classe restaurante que apresenta:
+            - atributos privados
+            - lista com cada avaliação
+            - adicionando um objeto à lista de restaurantes'''
         self._nome = nome.title() #só a primeira letra maiúscula
         self._categoria = categoria.upper() #toda as letras ficam maiúsculas
         self._status = False #ao passar os atributos como self eles DEVEM ser passados como parâmetro
@@ -11,28 +16,35 @@ class Restaurante: #uma classe define um estrutura modelo, um molde
         Restaurante.restaurantes.append(self) #toda vez que criar um objeto eu o adiciono à lista
     
     def __str__(self): #método especial que transforma em string 
+        '''Apresenta o nome e a categoria de um restaurante'''
         return f'{self._nome} | {self._categoria}' #self.o que quero exibir, o return que faz a devolução
 
     def listar_restaurantes(): #consigo determinar que é um método próprio porque não tem __a__
+        '''Apresenta ao ser chamado o(s) nome(s) do(s) restaurante(s), bem como a categoria, a avaliação e o status dele'''
         print(f"{'Nome do restaurante'.ljust(46)} | {'Categoria'.ljust(36)} | {'Avaliação'.ljust(25)} | {'Status'}") #coloca entre chaves para manter o espaçamento definido abaixo
         for restaurante in Restaurante.restaurantes:
-            print(f'Nome do restaurante: {restaurante._nome.ljust(25)} | Categoria: {restaurante._categoria.ljust(25)} | {str(restaurante.media_avaliacoes.ljust(25))} | Status: {restaurante.status}') #pegando da lista, por isso não utiliza o self. Para imprimir não utiliza o _status porque se refere ao atributo não à propriedade status. Pra imprimir a média tem que transformar em string por quê? Porque ljust só funciona com strings
+            print(f'Nome do restaurante: {restaurante._nome.ljust(25)} | Categoria: {restaurante._categoria.ljust(25)} | {str(restaurante.media_avaliacoes)} | Status: {restaurante.status}') #pegando da lista, por isso não utiliza o self. Para imprimir não utiliza o _status porque se refere ao atributo não à propriedade status. Pra imprimir a média tem que transformar em string por quê? Porque ljust só funciona com strings
 
     @property
     def status(self): #pra definir se 
+        '''Define o status do restaurante como V ou X'''
         return '✓' if self._status else '✗'
         
     def alternar_estado(self): #método para os objetos
+        '''Alterna o status do restaurante'''
         self._status = not self._status
         
     def receber_avaliacao(self, cliente, nota): #self significa o próprio objeto. Aqui em avaliação acontece a composição
-        avaliacao = Avaliacao(cliente, nota) #por que criar um objeto aqui? Porque encapsula as informações em um objeto, tornando mais fácil uma modificação futura. Porque é uma composição
-        self._avaliacao.append(avaliacao)
+        '''Recebe a avaliação do cliente que possui uma condição de ser entre 0 e 5 apenas'''
+        if (0<= nota <=5):
+            avaliacao = Avaliacao(cliente, nota) #por que criar um objeto aqui? Porque encapsula as informações em um objeto, tornando mais fácil uma modificação futura. Porque é uma composição
+            self._avaliacao.append(avaliacao)
 
     @property #para eu poder ler essas informações
     def media_avaliacoes(self):
+        '''Realiza o cálculo da média de avaliação de cada restaurante da lista'''
         if not self._avaliacao: #se o restaurante não tiver nenhuma avaliação
-            return 0
+            return '-'
         soma_das_notas = sum(avaliacao._nota for avaliacao in self._avaliacao) #percorre todas as avaliações e pega só a nota, no final, soma todas as notas
         quantidade_notas = len(self._avaliacao) #pra fazer o cálculo preciso ter todas as notas então vou pegar todas as notas armazenadas
         media = round(soma_das_notas/quantidade_notas, 1) #nas regras de negócio do app diz que cada nota só mostrará até uma casa decimal, para isso existe a função round que recebe o que será arredondado, até quantas casas decimais
