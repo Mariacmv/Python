@@ -1,4 +1,5 @@
 from modelos.avaliacao import Avaliacao
+from modelos.cardapio.item_cardapio import ItemCardapio #importando a classe cardápio
 
 class Restaurante: #uma classe define um estrutura modelo, um molde
     '''Representa um restaurante e suas características'''
@@ -12,6 +13,7 @@ class Restaurante: #uma classe define um estrutura modelo, um molde
         self._nome = nome.title() #só a primeira letra maiúscula
         self._categoria = categoria.upper() #toda as letras ficam maiúsculas
         self._status = False #ao passar os atributos como self eles DEVEM ser passados como parâmetro
+        self._cardapio = [] #começa como uma lista vazia
         self._avaliacao = [] #defino no construtor de restaurante porque estaria integrado ao restaurante? (sim, fazendo com que cada restaurante tenha sua avaliação) Armazenado como lista porque será mais de uma informação? (sim)
         Restaurante.restaurantes.append(self) #toda vez que criar um objeto eu o adiciono à lista
     
@@ -49,7 +51,38 @@ class Restaurante: #uma classe define um estrutura modelo, um molde
         quantidade_notas = len(self._avaliacao) #pra fazer o cálculo preciso ter todas as notas então vou pegar todas as notas armazenadas
         media = round(soma_das_notas/quantidade_notas, 1) #nas regras de negócio do app diz que cada nota só mostrará até uma casa decimal, para isso existe a função round que recebe o que será arredondado, até quantas casas decimais
         return media
+    
+    
+    
+    #NÃO ENTENDI ISSO AQUI
+    # def adiciona_bebida_no_cardapio(self, bebida):
+    #     self._cardapio.append(bebida) #adiciona a bebida ao cardapio
+    
+    # def adiciona_prato_no_cardapio(self, prato):
+    #     self._cardapio.append(prato)
+    
+    #refatorando as funções de adicionar itens ao cardápio:
+    def adicionar_no_cardapio(self, item):
+        if isinstance(item, ItemCardapio): #verifica se é uma instância de tal classe ou se for derivada da classe
+            self._cardapio.append(item) #adiciona o item ao cardápio
 
+    @property
+    def exibir_cardapio(self): #self apenas porque só quero ler
+        print(f'Cardápio do restaurante {self._nome}\n')
+        for i, item in enumerate(self._cardapio, start=1): #função que enumera. 'start=1' é porque começa do 0, então é melhor começar do 1
+            if hasattr(item, 'descricao'): #se tiver o atributo   
+                mensagem_prato = f'{i}. Nome: {item._nome} | Preço: R${item._preco} | Descrição: {item.descricao}'#mostro o item
+                print(mensagem_prato) 
+            else:
+                mensagem_bebida = f'{i}. Nome: {item._nome} | Preço: R${item._preco} | Tamanho: {item.tamanho}'#mostro o item
+                print(mensagem_bebida)
+        
+        
+        
+        
+        
+        
+        
 #Instanciando uma classe: criando um objeto
 # restaurante_praca = Restaurante('praça', 'Gourmet') #variável do tipo Restaurante
 # restaurante_praca.alternar_estado()
