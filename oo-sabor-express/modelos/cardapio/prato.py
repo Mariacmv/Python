@@ -7,3 +7,7 @@ class Prato(ItemCardapio): #herdará da classe itemcardapio
         
     def __str__(self):
         return self._nome
+    
+    def aplicar_desconto(self):
+        #pass - para não colocar desconto nenhum porque o método não é obrigatório
+        self._preco -= (self._preco * 0.05) #subtrai 5% do preço que existe

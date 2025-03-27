@@ -53,8 +53,6 @@ class Restaurante: #uma classe define um estrutura modelo, um molde
         return media
     
     
-    
-    #NÃO ENTENDI ISSO AQUI
     # def adiciona_bebida_no_cardapio(self, bebida):
     #     self._cardapio.append(bebida) #adiciona a bebida ao cardapio
     
